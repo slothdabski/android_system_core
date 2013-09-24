@@ -135,6 +135,7 @@ cc_library_static {
         "ueventd.cpp",
         "ueventd_parser.cpp",
         "util.cpp",
+        "vendor_init.cpp",
     ],
     whole_static_libs: ["libcap", "com.android.sysprop.apex"],
     header_libs: ["bootimg_headers"],
@@ -147,6 +148,14 @@ cc_library_static {
         recovery: {
             cflags: ["-DRECOVERY"],
             exclude_shared_libs: ["libbinder", "libutils"],
+        },
+    },
+
+    product_variables: {
+        revengeos: {
+            target_init_vendor_lib: {
+                whole_static_libs: ["%s"],
+            },
         },
     },
 }
