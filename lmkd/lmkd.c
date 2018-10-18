@@ -1559,7 +1559,7 @@ int main(int argc __unused, char **argv __unused) {
     use_minfree_levels =
         property_get_bool("ro.lmk.use_minfree_levels", false);
     enhance_batch_kill =
-        property_get_bool("ro.lmk.enhance_batch_kill", true);
+        property_get_bool("ro.lmk.enhance_batch_kill", false);
     enable_adaptive_lmk =
         property_get_bool("ro.lmk.enable_adaptive_lmk", false);
     enable_userspace_lmk =
