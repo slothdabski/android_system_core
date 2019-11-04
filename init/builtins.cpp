@@ -72,6 +72,7 @@
 #include "service.h"
 #include "subcontext.h"
 #include "util.h"
+#include "vendor_init.h"
 
 using namespace std::literals::string_literals;
 
@@ -1049,6 +1050,9 @@ static Result<Success> do_loglevel(const BuiltinArguments& args) {
 }
 
 static Result<Success> do_load_persist_props(const BuiltinArguments& args) {
+    // Update with vendor-specific property runtime overrides
+    vendor_load_properties();
+
     load_persist_props();
     return Success();
 }
